@@ -1,0 +1,19 @@
+{
+  "name": "w3w",
+  "version": "0.1.0",
+  "description": "simple and effective what3words api",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devsnek/what3words.js.git"
+  },
+  "author": "snek <me@gus.host>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devsnek/what3words.js/issues"
+  },
+  "homepage": "https://github.com/devsnek/what3words.js#readme",
+  "dependencies": {
+    "snekfetch": "^3.5.8"
+  }
+}
