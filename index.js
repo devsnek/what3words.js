@@ -2,7 +2,6 @@ const request = require('snekfetch');
 
 const API = 'https://api.what3words.com/v2';
 
-
 const clips = {
   radius: (lat, long, km) => `radius(${lat},${long},${km})`,
   focus: (km) => `focus(${km})`,
