@@ -29,10 +29,10 @@ function what3words(key) {
     reverse(lat, long) {
       return req('/reverse', { coords: `${lat},${long}` });
     },
-    autoSuggest(addr, { clip, count, ml }) {
+    autoSuggest(addr, { clip, count, ml } = {}) {
       return req(`/autosuggest${ml ? '-ml' : ''}`, { addr, clip, count });
     },
-    standardBlend(addr, { lang, focus, ml }) {
+    standardBlend(addr, { lang, focus, ml } = {}) {
       return req(`/standardblend${ml ? '-ml' : ''}`, {
         addr, lang,
         focus: focus ? `${focus[0]},${focus[1]}` : undefined,
