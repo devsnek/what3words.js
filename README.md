@@ -1,13 +1,15 @@
 # w3w
 
-```javascript
-import w3w from 'w3w';
+Very small what3words library for node and browser
 
-const api = w3w('key');
+```javascript
+const w3w = require('w3w')('key');
 
 const { geometry } = await api.forward('index.home.raft');
 console.log(geometry); // { lng: -0.203586, lat: 51.521251 }
 ```
+
+## Methods
 
 * `forward(address)`
 * `reverse(lat, long)`
@@ -15,3 +17,5 @@ console.log(geometry); // { lng: -0.203586, lat: 51.521251 }
 * `standardBlend(address, { lang, focus, ml })`
 * `grid(nelat, nelong, swlat, swlong)`
 * `languages()`
+
+for more information see https://docs.what3words.com/api/v2/#overview

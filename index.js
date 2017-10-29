@@ -17,7 +17,10 @@ function what3words(key) {
         lang: 'en',
         display: 'terse',
       }, options))
-      .then((r) => r.body);
+      .then((r) => {
+        if (r.body.status.code) return Promise.reject(r.body.status);
+        return r.body;
+      });
   }
 
   return {
@@ -29,19 +32,23 @@ function what3words(key) {
       return req('/reverse', { coords: `${lat},${long}` });
     },
     autoSuggest(addr, { clip, count, ml } = {}) {
-      return req(`/autosuggest${ml ? '-ml' : ''}`, { addr, clip, count });
+      return req(`/autosuggest${ml ? '-ml' : ''}`, { addr, clip, count })
+        .then((r) => r.suggestions);
     },
     standardBlend(addr, { lang, focus, ml } = {}) {
       return req(`/standardblend${ml ? '-ml' : ''}`, {
         addr, lang,
         focus: focus ? `${focus[0]},${focus[1]}` : undefined,
-      });
+      })
+        .then((r) => r.blends);
     },
     grid(nelat, nelong, swlat, swlong) {
-      return req('/grid', { bbox: `${nelat},${nelong},${swlat},${swlong}` });
+      return req('/grid', { bbox: `${nelat},${nelong},${swlat},${swlong}` })
+        .then((r) => r.grid);
     },
     languages() {
-      return req('/languages');
+      return req('/languages')
+        .then((r) => r.languages);
     },
   };
 }
