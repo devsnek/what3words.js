@@ -44,7 +44,7 @@ function what3words(key) {
     },
     grid(nelat, nelong, swlat, swlong) {
       return req('/grid', { bbox: `${nelat},${nelong},${swlat},${swlong}` })
-        .then((r) => r.grid);
+        .then((r) => r.lines);
     },
     languages() {
       return req('/languages')
