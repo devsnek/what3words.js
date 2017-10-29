@@ -3,7 +3,9 @@
 Very small what3words library for node and browser
 
 ```javascript
-const w3w = require('w3w')('key');
+const api = require('w3w')('key');
+// or in browser using unpkg
+const api = window.w3w('key');
 
 const { geometry } = await api.forward('index.home.raft');
 console.log(geometry); // { lng: -0.203586, lat: 51.521251 }
