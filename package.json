@@ -1,8 +1,13 @@
 {
   "name": "w3w",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "simple and effective what3words api",
   "main": "index.js",
+  "unpkg": "browser.js",
+  "scripts": {
+    "build:browser": "webpack",
+    "prepublish": "npm run build:browser"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devsnek/what3words.js.git"
@@ -15,5 +20,10 @@
   "homepage": "https://github.com/devsnek/what3words.js#readme",
   "dependencies": {
     "snekfetch": "^3.5.8"
+  },
+  "devDependencies": {
+    "json-filter-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^1.0.1",
+    "webpack": "^3.8.1"
   }
 }
