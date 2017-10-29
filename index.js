@@ -37,8 +37,8 @@ function what3words(key) {
         focus: focus ? `${focus[0]},${focus[1]}` : undefined,
       });
     },
-    grid(...args) {
-      return req('/grid', { bbox: clips.bbox(...args) });
+    grid(nelat, nelong, swlat, swlong) {
+      return req('/grid', { bbox: `${nelat},${nelong},${swlat},${swlong}` });
     },
     languages() {
       return req('/languages');
